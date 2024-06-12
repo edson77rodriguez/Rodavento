@@ -41,7 +41,13 @@
                                 <a class="nav-link" href="{{ route('clientes.index') }}">{{ __('Clientes') }}</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('cotizaciones.index') }}">{{ __('Cotizaciones') }}</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('hospedajes.index') }}">{{ __('Hospedaje') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('empresas.index') }}">{{ __('Empresas') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('agendas.index') }}">{{ __('Agendas') }}</a>

@@ -7,6 +7,14 @@ use App\Http\Controllers\HospedajeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\VendedorController;
+use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\CotizacionController;
+
+Route::resource('cotizaciones', CotizacionController::class);
+Route::get('/cotizaciones/create', [CotizacionController::class, 'create'])->name('cotizaciones.create');
+
+// Rutas para empresas
+Route::resource('empresas', EmpresaController::class);
 
 Route::get('/agendas/create', [AgendaController::class, 'create'])->name('agendas.create');
 Route::put('/agendas/{agenda}', [AgendaController::class, 'update'])->name('agendas.update');

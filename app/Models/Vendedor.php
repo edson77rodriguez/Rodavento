@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Vendedor extends Model
+
 {
+
     use SoftDeletes;
 
     /**
@@ -43,5 +45,9 @@ class Vendedor extends Model
     public function persona()
     {
         return $this->belongsTo(Persona::class, 'id_pers');
+    }
+    public function vendedor()
+    {
+        return $this->belongsTo(Vendedor::class, 'id_vendedor');
     }
 }
