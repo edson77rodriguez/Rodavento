@@ -9,6 +9,18 @@ use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\VendedorController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\CotizacionController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GuiaController;
+use App\Http\Controllers\AreaController;
+use App\Http\Controllers\EncargadoController;
+use App\Http\Controllers\SupervisorController;
+use App\Http\Controllers\Tipo_hController;
+use App\Http\Controllers\HabilidadController;
+use App\Http\Controllers\Asignar_HabilidadController;
+
+
+
+
 
 Route::resource('cotizaciones', CotizacionController::class);
 Route::get('/cotizaciones/create', [CotizacionController::class, 'create'])->name('cotizaciones.create');
@@ -44,6 +56,22 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::resource('personas', PersonaController::class);
+Route::resource('guias', GuiaController::class);
+Route::resource('areas', AreaController::class);
+Route::resource('encargados', EncargadoController::class);
+Route::resource('supervisores', SupervisorController::class);
+Route::resource('tipo_hs', Tipo_hController::class);
+Route::resource('habilidades', HabilidadController::class);
+Route::resource('asignar_habilidades', Asignar_HabilidadController::class);
 
-// Rutas para el controlador PersonaController
-Route::resource('persona', PersonaController::class);
+
+
+
+
+
+
+
+
+

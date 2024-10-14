@@ -1,0 +1,35 @@
+a
+{
+   font-family: Arial, sans-serif;
+  color: black;
+}
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Sección principal */
+.main {
+  padding-top: 50px;
+}
+
+/* Formulario de inicio de sesión */
+.form-label {
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Pie de página */
+.footer {
+  text-align: center;
+}

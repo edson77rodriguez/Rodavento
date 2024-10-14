@@ -57,7 +57,7 @@
                                 <a class="nav-link" href="{{ route('vendedores.index') }}">{{ __('Vendedores') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('persona.index') }}">{{ __('Personas') }}</a>
+                                <a class="nav-link" href="{{ route('personas.index') }}">{{ __('Personas') }}</a>
                             </li>
                             @if (Route::has('login'))
                                 <li class="nav-item">

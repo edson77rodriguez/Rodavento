@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Persona extends Model
 {
-    protected $table = 'personas';
-    protected $primaryKey = 'id_pers';
-
+    use HasFactory;
     protected $fillable = [
-        'nom', 'ap', 'am', 'num_tel', 'rfc', 'corre_elect'
-    ];
+        'nombre',
+        'ap',
+        'am',
+        'direccion',
+        'telefono',
+    ]; 
 }
