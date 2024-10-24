@@ -19,9 +19,18 @@ use App\Http\Controllers\HabilidadController;
 use App\Http\Controllers\Asignar_HabilidadController;
 
 
+use Illuminate\Support\Facades\Auth;
 
 
 
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect()->route('login'); // Redirige a la página de inicio de sesión
+})->name('logout');
+
+
+
+Route::resource('persona', PersonaController::class);
 Route::resource('cotizaciones', CotizacionController::class);
 Route::get('/cotizaciones/create', [CotizacionController::class, 'create'])->name('cotizaciones.create');
 
@@ -49,15 +58,17 @@ Route::resource('actividades', DepartamentoController::class);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('departamentos', 'DepartamentoController');
 Route::resource('departamentos', 'App\Http\Controllers\DepartamentoController');
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::resource('personas', PersonaController::class);
+Route::resource('persona', PersonaController::class);
 Route::resource('guias', GuiaController::class);
 Route::resource('areas', AreaController::class);
 Route::resource('encargados', EncargadoController::class);
@@ -70,7 +81,10 @@ Route::resource('asignar_habilidades', Asignar_HabilidadController::class);
 
 
 
-
+// routes/web.php
+Route::get('/auth/passwords/loging', function () {
+    return view('auth.passwords.login'); // Asegúrate de usar 'login' en singular aquí
+})->name('auth.passwords.loging');
 
 
 

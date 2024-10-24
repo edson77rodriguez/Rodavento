@@ -1,4 +1,4 @@
-@extends('dashboard')
+@extends('actividadeadm.resources.views.dashboard')
 
 @section('crud_content')
 <div class="container py-5">
@@ -134,7 +134,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 let form = document.createElement('form');
-                form.method = 'POST'; 
+                form.method = 'POST';
                 form.action = '/areas/' + id;
                 form.innerHTML = '@csrf @method("DELETE")';
                 document.body.appendChild(form);

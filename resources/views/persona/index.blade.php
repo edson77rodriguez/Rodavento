@@ -35,7 +35,7 @@
                         <div class="d-flex justify-content-between">
                         <button class="btn btn-info me-2 p-1" data-bs-toggle="modal" data-bs-target="#viewPersonaModal{{ $persona->id }}">Ver</button>
                             <button class="btn btn-primary me-2 p-1" data-bs-toggle="modal" data-bs-target="#editPersonaModal{{ $persona->id }}">Editar</button>
-                            <form action="{{ route('personas.destroy', $persona->id) }}" method="POST" style="display: inline;">
+                            <form action="{{ route('persona.destroy', $persona->id) }}" method="POST" style="display: inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="button" class="btn btn-sm btn-danger" onclick="confirmDelete('{{ $persona->id }}')">Eliminar</button>
@@ -76,7 +76,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="POST" action="{{ route('personas.update', $persona->id) }}">
+                                    <form method="POST" action="{{ route('persona.update', $persona->id) }}">
                                         @csrf
                                         @method('PUT')
                                         <div class="mb-3">
@@ -126,7 +126,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" action="{{ route('personas.store') }}">
+                    <form method="POST" action="{{ route('persona.store') }}">
                         @csrf
                         <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre</label>
@@ -185,8 +185,8 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 let form = document.createElement('form');
-                form.method = 'POST'; 
-                form.action = '/personas/' + id;
+                form.method = 'POST';
+                form.action = '/persona/' + id;
                 form.innerHTML = '@csrf @method("DELETE")';
                 document.body.appendChild(form);
                 form.submit();

@@ -18,13 +18,13 @@ class GuiaController extends Controller
 
     public function create()
     {
-       
+
     }
 
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'persona_id' => 'required|exists:personas,id',
+            'persona_id' => 'required|exists:persona,id',
         ]);
 
         guia::create($validatedData);
@@ -33,17 +33,17 @@ class GuiaController extends Controller
     }
     public function show($id)
     {
-       
+
     }
     public function edit($id)
     {
-        
+
     }
 
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'persona_id' => 'required|exists:personas,id',
+            'persona_id' => 'required|exists:persona,id',
         ]);
 
         $guia = guia::findOrFail($id);

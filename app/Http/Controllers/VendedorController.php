@@ -38,7 +38,7 @@ class VendedorController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'id_pers' => 'required|exists:personas,id_pers', // Validación de la existencia de la persona
+            'id_pers' => 'required|exists:persona,id_pers', // Validación de la existencia de la persona
             // Aquí puedes agregar otras reglas de validación según tus necesidades
         ]);
 

@@ -11,7 +11,7 @@
     position: relative;
     margin-bottom: 15px;
   }
-  
+
   .nav-link {
     display: flex;
     align-items: center;
@@ -21,13 +21,13 @@
     color: #333;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
-  
+
   .nav-link:hover {
     background-color: #5e72e4;
     color: white;
     box-shadow: 0px 4px 20px rgba(94, 114, 228, 0.4);
   }
-  
+
   .nav-link.active {
     background-color: #2dce89;
     color: white;
@@ -54,7 +54,7 @@
     font-size: 16px;
     font-weight: 500;
   }
-  
+
   .nav-link.active .icon {
     background-color: #fff;
     box-shadow: 0px 4px 20px rgba(45, 206, 137, 0.4);
@@ -64,7 +64,7 @@
     background-color: #28a745;
   }
 </style>
-  
+
   <title>
     Inventario
   </title>
@@ -73,14 +73,14 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="{{ asset('/assets/css/nucleo-icons.css') }}" rel="stylesheet" />
-  
+
   <link href="{{ asset('/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
-  
+
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="{{ asset('/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
   <link href="{{ asset('/css/alertify.min.css') }}" rel="stylesheet" />
-  
+
   <!-- CSS Files -->
   <link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('/assets/css/soft-ui-dashboard.css?v=1.0.7') }}">
@@ -91,14 +91,14 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
-  
+
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
-  
+
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html " target="_blank">
-   
-        <span class="ms-2 font-weight-bold">Sistemas de Gestion </span>
+
+        <span class="ms-2 font-weight-bold" >Sistemas de Gestion </span>
         <br>
         <span class="ms-2 font-weight-bold">de Inventario y gestion de actividades</span>
       </a>
@@ -127,8 +127,8 @@
           </a>
         </li>
 
-        <li class="nav-item {{ Request::is('personas*') ? 'active' : '' }}">
-  <a class="nav-link" href="{{ route('personas.index') }}">
+        <li class="nav-item {{ Request::is('persona*') ? 'active' : '' }}">
+  <a class="nav-link" href="{{ route('persona.index') }}">
     <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
       <svg width="12px" height="12px" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
         <title>Personas</title>
@@ -168,7 +168,7 @@
     <span class="nav-link-text ms-1">Guias</span>
   </a>
 </li>
-    
+
 <li class="nav-item {{ Request::is('areas*') ? 'active' : '' }}">
   <a class="nav-link" href="{{ route('areas.index') }}">
     <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -294,9 +294,9 @@
     <span class="nav-link-text ms-1">Asignar Habilidades</span>
   </a>
 </li>
-      
-      
-   
+
+
+
   </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
@@ -309,7 +309,7 @@
           </ol>
           <h6 class="font-weight-bolder mb-0">Dashboard</h6>
         </nav>
-        
+
 <nav class="navbar navbar-expand-md navbar-light bg-light">
     <!-- Botón de hamburguesa para dispositivos pequeños -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -322,24 +322,27 @@
               <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="{{ route('home') }}">Home</a>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
-                <i class="fa fa-user me-sm-1"></i>
-                <span class="d-sm-inline d-none sm-1">Sign In  </span>
-              </a>
-            </li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+
+                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Cerrar Sesión
+                </a>
+
           </ul>
         </div>
       </div>
     </nav>
     <div class="col-md-10 ">
             <!-- Título con imagen de fondo -->
-            
+
             <!-- Sección para mostrar datos CRUD -->
             @yield('crud_content')
-            
+
         </div>
-        
-           
+
+
       </footer>
     </div>
 
@@ -379,13 +382,13 @@
             <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
           </div>
         </a>
-    
+
       </div>
     </div>
   </div>
   <!--   Core JS Files   -->
   <script src=" {{ asset('/assets/js/core/popper.min.js') }}">
-    
+
   </script>
   <script src=" {{ asset('/assets/js/core/bootstrap.min.js') }}"></script>
   <script src="{{ asset('/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
